@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get install -y tzdata apache2 && \
+    rm -rf /var/lib/apt/lists/*
+COPY index1.html /var/www/html/
+CMD ["apachectl", "-D", "FOREGROUND"]
+ENV NAME=ruthuyadav
