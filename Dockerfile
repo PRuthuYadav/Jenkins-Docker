@@ -1,7 +1,11 @@
-FROM ubuntu:latest
-RUN apt-get update && \
-    apt-get install -y tzdata apache2 && \
-    rm -rf /var/lib/apt/lists/*
-COPY index1.html /var/www/html/
-CMD ["apachectl", "-D", "FOREGROUND"]
+FROM nginx:latest
+COPY index1.html /usr/share/nginx/html/index.html
+
+# Set an environment variable (optional)
 ENV NAME=ruthuyadav
+
+# Expose port 80 to make the Nginx server accessible
+EXPOSE 80
+
+# Start Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
