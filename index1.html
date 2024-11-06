@@ -9,81 +9,124 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f4f8;
         }
 
         header {
-            background: url('https://media.istockphoto.com/id/1460099849/photo/woman-in-the-hospital.jpg?s=612x612&w=0&k=20&c=o8w0tzS23BwtDRtP5e0sN6k17eHi-IRylzVdmA_nYJ8=') no-repeat center center;
-            background-size: cover;
-            color: #242120;
-            padding: 50px 0;
+            background: url('https://media.istockphoto.com/id/1460099849/photo/woman-in-the-hospital.jpg?s=612x612&w=0&k=20&c=o8w0tzS23BwtDRtP5e0sN6k17eHi-IRylzVdmA_nYJ8=') no-repeat center center/cover;
+            color: #fff;
+            padding: 70px 0;
             text-align: center;
             position: relative;
         }
 
         header h1 {
-            position: relative;
-            z-index: 1; /* Ensure text is above the background */
+            font-size: 3em;
+            font-weight: bold;
             margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
 
         nav ul {
             list-style: none;
             padding: 0;
-            position: relative;
-            z-index: 1; /* Ensure text is above the background */
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
         }
 
         nav ul li a {
-            color: #242120;
+            color: #fff;
+            font-weight: bold;
             text-decoration: none;
+            padding: 5px 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         main {
-            padding: 20px;
+            padding: 30px;
         }
 
         section {
-            background: #ffffff;
-            padding: 20px;
+            background: #e0ebf3;
+            padding: 30px;
             margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        section:hover {
+            background: #d1e3f1;
+        }
+
+        h2 {
+            color: #333;
+            font-weight: bold;
         }
 
         label {
+            font-weight: bold;
             display: block;
-            margin: 10px 0 5px;
+            margin-top: 10px;
         }
 
         input, select, button {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
+            margin-top: 5px;
+            border: 1px solid #ddd;
             border-radius: 5px;
         }
 
         button {
             background-color: #35424a;
             color: white;
-            border: none;
+            font-size: 1em;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
             background-color: #45a049;
         }
 
-        img {
+        .doctor-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .doctor-item {
+            flex: 1 1 30%;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fafafa;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .doctor-item img {
             max-width: 100%;
-            height: auto;
             border-radius: 5px;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-item:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -91,32 +134,33 @@
             padding: 20px 0;
             background: #35424a;
             color: #ffffff;
-            position: relative;
-            bottom: 0;
+            font-size: 0.9em;
+        }
+
+        .overview-image, .service-image, .testimonial-image {
             width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
         }
 
-        .doctor-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .doctor-item {
-            flex: 1 1 30%;
-            margin: 10px;
-            text-align: center;
+        .overview-image:hover, .service-image:hover, .testimonial-image:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>ABC Hospitals123</h1>
+        <h1>ABC Hospitals</h1>
         <nav>
             <ul>
                 <li><a href="#register">Patient Registration</a></li>
                 <li><a href="#appointments">Appointments</a></li>
                 <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#hospital">Hospital Overview</a></li>
+                <li><a href="#services">Our Services</a></li>
             </ul>
         </nav>
     </header>
@@ -153,7 +197,7 @@
                 <input type="text" id="patient-name" name="patient-name" required>
 
                 <label for="doctor">Select Doctor:</label>
-                <select id="doctor" name ="doctor" required>
+                <select id="doctor" name="doctor" required>
                     <option value="dr-smith">Dr. Smith</option>
                     <option value="dr-jones">Dr. Jones</option>
                     <option value="dr-brown">Dr. Brown</option>
@@ -172,81 +216,40 @@
             <div class="doctor-list">
                 <div class="doctor-item">
                     <img src="https://media.istockphoto.com/id/507954725/photo/never-fear-the-doctor-is-here.jpg?s=612x612&w=0&k=20&c=fPGU8TcaU-88cAwZvALWghx6fJ4j3zj4C79TKI-WRP4=" alt="Dr. Smith">
-                    <p>Dr. Smith - Cardiologist</p>
+                    <p><strong>Dr. Smith</strong> - Cardiologist</p>
                 </div>
                 <div class="doctor-item">
                     <img src="https://media.istockphoto.com/id/1161336374/photo/portrait-of-confident-young-medical-doctor-on-blue-background.jpg?s=612x612&w=0&k=20&c=zaa4MFrk76JzFKvn5AcYpsD8S0ePYYX_5wtuugCD3ig=" alt="Dr. Jones">
-                    <p>Dr. Jones - Neurologist</p>
+                    <p><strong>Dr. Jones</strong> - Neurologist</p>
                 </div>
                 <div class="doctor-item">
                     <img src="https://media.istockphoto.com/id/802407384/photo/portrait-of-serious-handsome-male-doctor-with-crossed-hands-on-gray-background.jpg?s=612x612&w=0&k=20&c=2bXYkr2OyXM0Y0lQFJb9d_LLX5BRl4yrEtCc5dW-J0c=" alt="Dr. Brown">
-                    <p>Dr. Brown - General Practitioner</p>
-                </div>
-                <div class="doctor-item">
-                    <img src="https://media.istockphoto.com/id/1189304032/photo/doctor-holding-digital-tablet-at-meeting-room.jpg?s=612x612&w=0&k=20&c=RtQn8w_vhzGYbflSa1B5ea9Ji70O8wHpSgGBSh0anUg=" alt="Dr. Lee">
-                    <p>Dr. Lee - Pediatrician</p>
-                </div>
-                <div class="doctor-item">
-                    <img src="https://media.istockphoto.com/id/1301595548/photo/female-doctor-stock-photo.jpg?s=612x612&w=0&k=20&c=s9kTlQCWJcYmCyMwYwJfTq7jiC1NfHaXzZyGhi4fRHM=" alt="Dr. Patel">
-                    <p>Dr. Patel - Orthopedic Surgeon</p>
+                    <p><strong>Dr. Brown</strong> - General Practitioner</p>
                 </div>
             </div>
         </section>
 
         <section id="hospital">
             <h2>Hospital Overview</h2>
-            <img src="https://media.gettyimages.com/id/1312706504/photo/modern-hospital-building.jpg?s=612x612&w=0&k=20&c=DT6YDRZMH5G5dL-Qv6VwPpVDpIDxJqkAY4Gg0ojGi58=" alt="Hospital Overview">
-            <p>Welcome to our hospital! We provide top-notch medical care to our patients.</p>
+            <img class="overview-image" src="https://media.istockphoto.com/id/485650901/vector/hospital-cutaway-illustration-star-shaped.jpg?s=612x612&w=0&k=20&c=0R2r9gAXuiUFMFi8DLGTnXAviI74wuyBjAb5e3CtDos=" alt="Hospital Overview Image">
+            <p>ABC Hospitals provides world-class healthcare services. Our modern facilities and experienced staff ensure quality care.</p>
         </section>
 
         <section id="services">
-            <h2>Medical Services</h2>
-            <img src="https://medintu.in/wp-content/uploads/2023/11/home-care.jpg" alt="Medical Services">
-            <p>We offer a wide range of medical services, including cardiology, neurology, and pediatrics.</p>
+            <h2>Our Services</h2>
+            <img class="service-image" src="https://images.drlogy.com/assets/uploads/img/admin/blog/hospital-service-importance-for-hospital-growth-strategies.webp" alt="Our Services Image">
+            <p>Our services range from emergency care, specialized surgeries, to routine check-ups. We are committed to your health.</p>
         </section>
 
         <section id="testimonials">
             <h2>Patient Testimonials</h2>
-            <img src="https://media.licdn.com/dms/image/v2/D5622AQE_oUDp_Qsubw/feedshare-shrink_800/feedshare-shrink_800/0/1712076858930?e=2147483647&v=beta&t=qHaNixpfdlT2cnZeihaqxDkI-6b8HFm6B4xVKVjxPQk" alt="Patient Testimonials">
-            <p>Our patients love us! Check out what they have to say about our hospital.</p>
+            <img class="testimonial-image" src="https://media.gettyimages.com/id/1207020088/photo/modern-medicine-requires-a-high-level-of-specialization.jpg?s=612x612&w=0&k=20&c=cdpOl72n6N-FKOtCZpmbsJTbPI-7z8YX6S2VBN61z9s=" alt="Patient Testimonials Image">
+            <p>Our patients’ stories speak for themselves. We strive to provide compassionate, personalized treatment to every patient.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Hospital Management System</p>
+        <p>&copy; 2024 ABC Hospitals. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Patient Registration Form Submission
-        document.getElementById('registration-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-            const gender = document.getElementById('gender').value;
-            const contact = document.getElementById('contact').value;
-
-            // Validate form data
-            if (name && age && gender && contact) {
-                document.getElementById('registration-message').innerHTML = `Patient registered successfully!`;
-            } else {
-                document.getElementById('registration-message').innerHTML = `Please fill in all the required fields.`;
-            }
-        });
-
-        // Appointment Scheduling Form Submission
-        document.getElementById('appointment-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const patientName = document.getElementById('patient-name').value;
-            const doctor = document.getElementById('doctor').value;
-            const date = document.getElementById('date').value;
-
-            // Validate form data
-            if (patientName && doctor && date) {
-                document.getElementById('appointment-message').innerHTML = `Appointment scheduled successfully!`;
-            } else {
-                document.getElementById('appointment-message').innerHTML = `Please fill in all the required fields.`;
-            }
-        });
-    </script>
 </body>
 </html>
